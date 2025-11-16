@@ -1,0 +1,22 @@
+/* NavBar.css */
+
+.navbar {
+    background-color: #343a40; /* Navbar background color */
+  }
+  
+  .navbar-brand-logo {
+    height: 50px; /* Logo height */
+  }
+  
+  .nav-link {
+    color: #fff !important; /* Nav link text color */
+  }
+  
+  .cart-items-count {
+    background-color: #ffc107; /* Background color for cart items count */
+    color: #333; /* Text color for cart items count */
+    padding: 2px 5px; /* Padding for cart items count */
+    border-radius: 50%; /* Border radius for cart items count */
+    font-size: 12px; /* Font size for cart items count */
+  }
+  

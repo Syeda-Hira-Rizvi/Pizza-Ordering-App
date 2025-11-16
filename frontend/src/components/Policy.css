@@ -1,0 +1,31 @@
+.policy-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .policy-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .policy-section {
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .policy-section-title {
+    color: #333333;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .policy-text-content {
+    color: #666666;
+    font-size: 16px;
+  }
+  

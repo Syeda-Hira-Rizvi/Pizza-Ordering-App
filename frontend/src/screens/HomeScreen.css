@@ -1,0 +1,14 @@
+.home-container {
+    padding-bottom: 40px;
+  }
+  
+  .pizza-container {
+    margin-top: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .pizza-container {
+      margin-top: 40px;
+    }
+  }
+  

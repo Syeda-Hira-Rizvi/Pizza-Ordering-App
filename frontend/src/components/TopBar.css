@@ -1,0 +1,35 @@
+/* TopBar.css */
+
+/* Styling for top bar */
+.navbar {
+    background-color: #333;
+  }
+  
+  /* Styling for top bar text */
+  .text-light {
+    color: #fff;
+  }
+  
+  /* Styling for top bar navigation links */
+  .nav-link {
+    color: #fff !important;
+    margin-left: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  /* Styling for top bar navigation links on hover */
+  .nav-link:hover {
+    color: #ffc107 !important;
+  }
+  
+  /* Media query for responsive design */
+  @media (max-width: 768px) {
+    /* Styling for top bar navigation links on small screens */
+    .nav-link {
+      margin-left: 0;
+      margin-top: 10px;
+      display: block;
+    }
+  }
+  
