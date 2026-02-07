@@ -6,6 +6,14 @@ const app = express();
 const connectDB = require("./config/config");
 require("colors");
 const morgan = require("morgan");
+const cors = require("cors");
+
+
+// Enable CORS
+app.use(cors({
+  origin: "http://localhost:5173",// Frontend's URL (adjust as needed)
+  credentials: true, // Allow cookies to be sent with cross-origin requests
+}));
 
 //config dotenv
 dotenv.config();
@@ -19,9 +27,9 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 //route
-app.use("/api/pizzas", require("./routes/pizzaRoute"));
-app.use("/api/users", require("./routes/userRoutes"));
-app.use("/api/orders", require("./routes/orderRoute"));
+app.use("/api/v1/pizzas", require("./routes/pizzaRoute"));
+app.use("/api/v1/users", require("./routes/userRoutes"));
+app.use("/api/v1/orders", require("./routes/orderRoute"));
 
   app.use(express.static(path.join(__dirname, "/frontend/dist")));
   app.get("*", (req, res) => {
@@ -33,9 +41,13 @@ app.get("/", (req, res) => {
 });
 
 
-app.listen(8080, () => {
-  console.log(
-    `Server Running On ${process.env.NODE_ENV||"development"} mode on port no ${process.env.PORT||8080}`
-      .bgMagenta.white
-  );
+// app.listen(8080, () => {
+//   console.log(
+//     `Server Running On ${process.env.NODE_ENV||"development"} mode on port no ${process.env.PORT||8080}`
+//       .bgMagenta.white
+//   );
+// });
+
+const server = app.listen(process.env.PORT,()=>{
+    console.log(`Server is working on http://localhost:${process.env.PORT}`)
 });

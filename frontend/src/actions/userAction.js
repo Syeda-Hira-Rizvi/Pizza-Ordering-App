@@ -3,7 +3,7 @@ import swal from "sweetalert";
 export const registerUser = (user) => async (dispatch) => {
   dispatch({ type: "USER_REGISTER_REQUEST" });
   try {
-    await axios.post("/api/users/register", user);
+    await axios.post(`${process.env.VITE_APP_BASE_URL}/users/register`, user);
     dispatch({ type: "USER_REGISTER_SUCCESS" });
   } catch (error) {
     dispatch({ type: "USER_REGISTER_FAIL", payload: error });
@@ -13,7 +13,7 @@ export const registerUser = (user) => async (dispatch) => {
 export const loginUser = (user) => async (dispatch) => {
   dispatch({ type: "USER_LOGIN_REQUEST" });
   try {
-    const response = await axios.post("/api/users/login", user);
+    const response = await axios.post(`${process.env.VITE_APP_BASE_URL}/users/login`, user);
     // console.log(response);
     dispatch({ type: "USER_LOGIN_SUCCESS", payload: response.data });
     localStorage.setItem("currentUser", JSON.stringify(response.data));
@@ -37,7 +37,7 @@ export const forgotPassword = (email) => async (dispatch) => {
     
     const config = { headers: { "Content-Type": "application/json" } };
 
-    const { data } = await axios.post(`/api/users/forgotpassword`, email, config);
+    const { data } = await axios.post(`${process.env.VITE_APP_BASE_URL}/users/forgotpassword`, email, config);
 
     dispatch({ type: "FORGOT_PASSWORD_SUCCESS", payload: data.message });
 
@@ -57,7 +57,7 @@ export const resetPassword = (token,password) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.put(
-      `/api/users/resetpassword/${token}`,
+      `${process.env.VITE_APP_BASE_URL}/users/resetpassword/${token}`,
       password,
       config
     );
@@ -77,7 +77,7 @@ export const updateUserRole= (id, userData) => async (dispatch) => {
     const config = { headers: { "Content-Type": "application/json" } };
 
     const { data } = await axios.put(
-      `/api/users/admin/${id}`,
+      `${process.env.VITE_APP_BASE_URL}/users/admin/${id}`,
       userData,
       config
     );
@@ -92,7 +92,7 @@ export const getSingleUser = (id) => async (dispatch) => {
   try {
     //const response = await axios.get("/api/users/getsingleuser");
     // console.log(response.data);
-    const { data } = await axios.delete(`/api/v1/admin/user/${id}`);
+    const { data } = await axios.delete(`${process.env.VITE_APP_BASE_URL}/admin/user/${id}`);
 
     dispatch({ type: "GET_SINGLE_USER_SUCCESS", payload: data });
   } catch (err) {
@@ -101,16 +101,10 @@ export const getSingleUser = (id) => async (dispatch) => {
 };
 
 
-
-
-
-
-
-
 export const getAllUsers = () => async (dispatch) => {
   dispatch({ type: "GET_USERS_REQUEST" });
   try {
-    const response = await axios.get("/api/users/getallusers");
+    const response = await axios.get(`${process.env.VITE_APP_BASE_URL}/users/getallusers`);
     // console.log(response.data);
     dispatch({ type: "GET_USERS_SUCCESS", payload: response.data });
   } catch (err) {
@@ -120,7 +114,7 @@ export const getAllUsers = () => async (dispatch) => {
 
 export const deleteUser = (userid) => async (dispatch) => {
   try {
-    await axios.post("/api/users/deleteuser", { userid });
+    await axios.post(`${process.env.VITE_APP_BASE_URL}/users/deleteuser`, { userid });
     swal("User Deleted Succss!", "success");
     window.location.reload();
     // console.log(res);
