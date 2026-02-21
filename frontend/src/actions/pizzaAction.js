@@ -2,6 +2,7 @@ import axios from "axios";
 import swal from "sweetalert";
 export const getAllPizzas = () => async (dispatch) => {
   dispatch({ type: "GET_PIZZAS_REQUEST" });
+    console.log("BASE URL =", import.meta.env.VITE_APP_BASE_URL);
   try {
     const response = await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/pizzas/getAllPizzas`);
     // console.log(response.data);
