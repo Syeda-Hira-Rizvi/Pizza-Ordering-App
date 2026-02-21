@@ -11,7 +11,7 @@ const cors = require("cors");
 
 // Enable CORS
 app.use(cors({
-  origin: "http://localhost:5173",// Frontend's URL (adjust as needed)
+  origin: ["http://localhost:5173", "https://pizza-ordering-app-viz4.vercel.app"],// Frontend's URL (adjust as needed)
   credentials: true, // Allow cookies to be sent with cross-origin requests
 }));
 
