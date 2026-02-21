@@ -26,19 +26,20 @@ connectDB();
 app.use(express.json());
 app.use(morgan("dev"));
 
+
+app.get("/", (req, res) => {
+  res.send("<h1>Hello From Node Server via nodemon</h1>");
+});
+
 //route
 app.use("/api/v1/pizzas", require("./routes/pizzaRoute"));
 app.use("/api/v1/users", require("./routes/userRoutes"));
 app.use("/api/v1/orders", require("./routes/orderRoute"));
 
-  app.use(express.static(path.join(__dirname, "/frontend/dist")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-  });
-
-app.get("/", (req, res) => {
-  res.send("<h1>Hello From Node Server via nodemon</h1>");
-});
+  // app.use(express.static(path.join(__dirname, "/frontend/dist")));
+  // app.get("*", (req, res) => {
+  //   res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+  // });
 
 
 // app.listen(8080, () => {
